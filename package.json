@@ -1,0 +1,32 @@
+{
+  "name": "fingerprint",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "DEBUG=fingerprint:* PORT=80 nodemon ./bin/www"
+  },
+  "dependencies": {
+    "connect-redis": "^4.0.4",
+    "cookie-parser": "~1.4.4",
+    "curl-request": "^1.1.1",
+    "debug": "~2.6.9",
+    "dns": "^0.2.2",
+    "express": "^4.16.4",
+    "express-session": "^1.17.1",
+    "geoip-lite": "^1.4.2",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "md5": "^2.2.1",
+    "morgan": "~1.9.1",
+    "node-arp": "^1.0.6",
+    "node-libcurl": "^2.1.3",
+    "node-nmap": "^4.0.0",
+    "node-pre-gyp": "^0.15.0",
+    "pg": "^8.2.1",
+    "ping": "^0.2.3",
+    "postinstall": "^0.7.0",
+    "redis": "^3.0.2",
+    "useragent": "^2.3.0",
+    "whois": "^2.12.1"
+  }
+}
