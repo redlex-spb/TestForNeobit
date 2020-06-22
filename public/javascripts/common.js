@@ -110,7 +110,7 @@ function app() {
 		});
 
 		if ( saveLocalstorage( getCookie("id") ) ) {
-			frontendFingerprint.cookie_id = window.localStorage.getItem("cookieID");
+			//frontendFingerprint.cookie_id = window.localStorage.getItem("cookieID");
 		}
 
 		let values = res.map(function (res) { return res.value });
