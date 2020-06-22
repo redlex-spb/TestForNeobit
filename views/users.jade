@@ -1,0 +1,36 @@
+link(rel='stylesheet', href='/stylesheets/users.css')
+table
+    thead
+        th id
+        th ip
+        th useragent backend
+        th useragent frontend
+        th browser backend
+        th browser frontend
+        th os backend
+        th os frontend
+        th device backend
+        th device frontend
+        th hash backend
+        th hash frontend
+        th cookie id
+        th session id
+        th geo
+        th timezone backend
+        th timezone frontend
+        th dns backend
+        th dns frontend
+        th webrtc
+        th mtu
+        th language backend
+        th language frontend
+        th date create
+        th headers
+        th mac
+        th nmap
+        th last visit
+    tbody
+        each row in data
+            tr
+                each column in row
+                    td !{typeof column == "object" ? JSON.stringify(column) : column}
