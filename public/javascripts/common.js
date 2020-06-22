@@ -3,14 +3,14 @@ function app() {
 	/** Init varible **/
 
 	let cookieID = document.cookie.id,
-	    frontendFingerprint = {},
-		 pingAttempts = 4,
-		 pingMinimal = 0,
-		 isTor = false,
-	    progressBarInterval,
-		 completeData = {},
-		 blocksLength = 80,
-		 propertyLength = 35;
+		frontendFingerprint = {},
+		pingAttempts = 4,
+		pingMinimal = 0,
+		//isTor = false,
+		progressBarInterval,
+		completeData = {},
+		blocksLength = 80,
+		propertyLength = 35;
 
 
 	/** Loading animation **/
@@ -84,6 +84,13 @@ function app() {
 		});
 	}
 
+	function getCookie(name) {
+		let matches = document.cookie.match(new RegExp(
+			"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+		));
+		return matches ? decodeURIComponent(matches[1]) : undefined;
+	}
+
 
 	/*** Client inspection ***/
 
@@ -102,8 +109,14 @@ function app() {
 			frontendFingerprint[element.key] = element.value;
 		});
 
+		if ( saveLocalstorage( getCookie("id") ) ) {
+			frontendFingerprint.cookie_id = window.localStorage.getItem("cookieID");
+		}
+
 		let values = res.map(function (res) { return res.value });
 		let murmur = Fingerprint2.x64hash128(values.join(''), 31);
+
+
 
 		makeRequest(
 			"POST",
@@ -121,13 +134,17 @@ function app() {
 
 	/**
 	 * Check localstorage and save data
+	 * @param cookieID string
 	 * @returns {boolean}
 	 */
 
-	function saveLocalstorage() {
+	function saveLocalstorage(cookieID) {
 		try {
 			if ( !window.localStorage.getItem("cookieID") ) {
 				window.localStorage.setItem("cookieID", cookieID);
+			}
+			if ( !window.sessionStorage.getItem("cookieID") ) {
+				window.sessionStorage.setItem("cookieID", cookieID);
 			}
 			return true;
 		} catch (exception) {
@@ -152,8 +169,8 @@ function app() {
 					onComplete();
 				}
 			})).catch(rejected => {
-				//console.log(rejected);
-				onComplete();
+			//console.log(rejected);
+			onComplete();
 		});
 	}
 
