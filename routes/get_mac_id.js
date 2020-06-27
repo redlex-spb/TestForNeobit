@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var arp = require('../lib/arp');
+const arp = require('../lib/arp');
 
 router.get('/', arp.getMacID);
 

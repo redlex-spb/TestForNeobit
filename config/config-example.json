@@ -1,0 +1,31 @@
+{
+	"backend": {
+		"db": {
+			"user": "user",
+			"password": "password",
+			"host": "localhost",
+			"database": "database",
+			"port": 5432
+		},
+		"tor": {
+			"databases": [
+				"https://check.torproject.org/torbulkexitlist",
+				"https://www.dan.me.uk/torlist/"
+			]
+		}
+	},
+	"frontend": {
+		"pingAttempts": 4,
+		"blocksLength": 80,
+		"propertyLength": 35,
+		"lengthProgressBar": 20,
+		"host_url": "http://1.1.1.1/",
+		"checkUrls": [
+			"get_nmap",
+			"get_mtu_size",
+			"get_mac_id",
+			"get_hostname",
+			"get_whois"
+		]
+	}
+}

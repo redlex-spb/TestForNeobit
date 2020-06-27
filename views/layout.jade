@@ -3,7 +3,10 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js')
+    script(src='/javascripts/fingerprint2.min.js')
     script(src='/javascripts/common.js')
+    script.
+      const config = !{JSON.stringify(config)}
+      const data = !{JSON.stringify(data)}
   body
     block content

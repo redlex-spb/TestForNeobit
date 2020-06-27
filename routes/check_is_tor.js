@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var tor = require('../lib/tor');
+const tor = require('../lib/tor');
 
 router.get('/', tor.isTor);
 

@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var whois = require('../lib/whois');
+const whois = require('../lib/whois');
 
 router.get('/', whois.getData);
 
